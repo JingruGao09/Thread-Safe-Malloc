@@ -1,0 +1,17 @@
+- Implement thread safe malloc using linklist to track free blocks.
+- Implement two different thread-safe versions (i.e. safe for concurrent access by different threads of a process) 
+  of the malloc() and free() functions. 
+- Both of your thread-safe malloc and free functions should use the best fit allocation policy.
+- In version 1 of the thread-safe malloc/free functions, 
+  use lock-based synchronization to prevent race conditions that would lead to incorrect results. 
+  These functions are to be named:
+     //Thread Safe malloc/free: locking version
+     void *ts_malloc_lock(size_t size);
+     void ts_free_lock(void *ptr);
+- In version 2 of the thread-safe malloc/free functions, 
+  not use locks, with one exception. 
+  Because the sbrk function is not thread-safe, 
+  acquire a lock immediately before calling sbrk and release a lock immediately after calling sbrk.
+     //Thread Safe malloc/free: non-locking version 
+     void *ts_malloc_nolock(size_t size);
+     void ts_free_nolock(void *ptr);
